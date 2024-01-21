@@ -1,7 +1,10 @@
 import React from 'react';
+import { MdDeliveryDining } from 'react-icons/md';
+
 import Logo from '../../../assets/logo/logo.svg';
 import { Link } from 'react-router-dom';
 import './header.scss';
+import { Button } from '../../../ui-components/button/Button';
 
 export const Header = () => {
     const links = [
@@ -25,8 +28,20 @@ export const Header = () => {
             <div>
                 <img src={Logo} alt='logo' />
             </div>
-            <div>{linkTemplate}</div>
-            <div></div>
+            <div className='linksContainer'>{linkTemplate}</div>
+            <div className='hamburgerMenu'>
+                <div className='menuItem' />
+                <div className='menuItem' />
+                <div className='menuItem' />
+            </div>
+            <div className='buttonContainer'>
+                <Button to='/order-online' className='button'>
+                    <div className='buttonChildren'>
+                        <MdDeliveryDining className='icon' />
+                        <p>Order online</p>
+                    </div>
+                </Button>
+            </div>
         </header>
     );
 };

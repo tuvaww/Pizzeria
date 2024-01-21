@@ -2,4 +2,42 @@
 
 .header {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .linksContainer {
+        display: none;
+    }
+
+    .hamburgerMenu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .menuItem {
+            background-color: $color-orange;
+            height: 4px;
+            width: 35px;
+            border-radius: $rounded-xs;
+        }
+    }
+
+    .buttonContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: spacing(xxxl);
+
+        .buttonChildren {
+            display: flex;
+            align-items: center;
+            gap: spacing(sm);
+            width: 100%;
+
+            .icon {
+                font-size: 34px;
+            }
+        }
+    }
 }

@@ -1,0 +1,119 @@
+@import 'src/styles/index';
+
+.button {
+    /* TODO - add real font */
+    //@include font(body-short, md);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $color_white;
+    height: 1px; // useless style that makes ie11 happy
+    min-height: 8 * $gutter;
+    padding: 0 #{$gutter * 2};
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    white-space: nowrap;
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        opacity: 0.75;
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+        box-shadow: 0 0 0 1px lighten($color-white, 20%);
+    }
+
+    &[ui-width='wide'] {
+        width: $gutter * 24;
+    }
+
+    &[ui-width='wider'] {
+        width: $gutter * 36;
+    }
+
+    &[ui-width='half'] {
+        width: 50%;
+    }
+
+    &[ui-width='fill'] {
+        width: 100%;
+    }
+
+    &[ui-size='xs'] {
+        min-height: $gutter * 4;
+        font-size: calc-rem(12);
+        padding: 0 #{$gutter * 1.5};
+    }
+
+    &[ui-size='sm'] {
+        min-height: $gutter * 5;
+        font-size: calc-rem(14);
+        padding: 0 #{$gutter * 2};
+    }
+
+    &[ui-size='md'] {
+        min-height: $gutter * 6;
+        font-size: calc-rem(16);
+        padding: 0 #{$gutter * 1.5};
+    }
+
+    &[ui-size='lg'] {
+        min-height: $gutter * 7;
+        font-size: calc-rem(18);
+        padding: 0 #{$gutter * 1.5};
+    }
+
+    &[ui-size='xl'] {
+        min-height: $gutter * 8;
+        font-size: calc-rem(18);
+        padding: 0 #{$gutter * 1.5};
+    }
+
+    &[ui-radius='xxs'] {
+        border-radius: $rounded-xs;
+    }
+
+    &[ui-radius='xs'] {
+        border-radius: $rounded-sm;
+    }
+
+    &[ui-radius='sm'] {
+        border-radius: $radius;
+    }
+
+    &[ui-radius='md'] {
+        border-radius: $radius * 2;
+    }
+
+    &[ui-radius='lg'] {
+        border-radius: $radius * 3;
+    }
+
+    &[ui-color='primary'] {
+        background-color: $color-orange;
+    }
+
+    &[ui-color='transparent'] {
+        background-color: transparent;
+        border: 1px solid $color-white;
+    }
+
+    &[ui-color='green'] {
+        background-color: $color-dark-grey;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        color: $color_black;
+        background-color: $color-light-grey;
+    }
+}
