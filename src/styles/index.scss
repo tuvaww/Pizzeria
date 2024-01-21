@@ -1,0 +1,7 @@
+@import 'setup/variables';
+@import 'setup/mixins';
+
+body {
+    @import 'core/reset';
+    @import 'core/base';
+}

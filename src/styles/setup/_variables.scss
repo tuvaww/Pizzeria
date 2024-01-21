@@ -1,0 +1,78 @@
+/* Base */
+$gutter: 8px;
+$radius: 8px;
+
+/* Fonts */
+$text__size: 16;
+$text__line__height: 22;
+$text__font: 'Jost', sans-serif;
+
+$color-orange: #ff6e06;
+$color-dark-grey: #2d2828;
+$color-light-grey: #e8e8e8;
+$color-dark-green: #385540;
+$color-white: #ffffff;
+$color-black: #000000;
+
+/* Sizes */
+$size__desktop--large: 1280px;
+$size__desktop--medium-plus: 1024px;
+$size__desktop--medium: 968px;
+$size__desktop--small: 848px;
+$size__tablet--large: 640px;
+$size__tablet--medium: 540px;
+$size__tablet--small: 480px;
+$size__phone--xl: 414px;
+$size__phone--large: 380px;
+$size__phone--medium: 360px;
+$size__phone--small: 320px;
+
+$size__container--xxs: 440px;
+$size__container--xs: 580px;
+$size__container--sm: 620px;
+$size__container--md: 720px;
+$size__container--lg: 860px;
+$size__container--xl: 1020px;
+
+$spacings: (
+    xxs: $gutter * 0.25,
+    // 2px
+    xs: $gutter * 0.5,
+    // 4px
+    xsp: $gutter * 0.75,
+    // 6px
+    sm: $gutter,
+    // 8px
+    '': $gutter * 1.5,
+    // 12px
+    md: $gutter * 2,
+    // 16px
+    mdp: $gutter * 2.5,
+    // 20px
+    lg: $gutter * 3,
+    // 24px
+    xl: $gutter * 4,
+    // 32px
+    xxl: $gutter * 5,
+    // 40px
+    xxxl: $gutter * 6,
+    // 48px
+);
+
+/* Radius */
+$rounded-xs: 4px;
+$rounded-sm: 6px;
+$rounded-md: 8px;
+$rounded-lg: 10px;
+$rounded-xl: 12px;
+$rounded-xxl: 14px;
+$rounded-xxxl: 16px;
+
+$text-weight-regular: 400 !default;
+$text-weight-semibold: 600 !default;
+$text-weight-bold: 700 !default;
+$text-tracking-normal: 0px !default;
+$text-tracking-fixed-tight: 0.16px !default;
+$text-tracking-fixed-wide: 0.16px !default;
+$text-tracking-fixed-wider: 0.32px !default;
+$text-tracking-variable-tight: -0.02em !default;

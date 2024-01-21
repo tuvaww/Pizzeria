@@ -1,0 +1,83 @@
+@import '../setup/variables';
+
+/* Body */
+& {
+    font-size: #{$text__size}px;
+    background: $color-dark-grey;
+
+    font-family: $text__font;
+    font-weight: $text-weight-regular;
+    line-height: #{$text__line__height}px;
+    overflow: hidden;
+    overflow-y: auto;
+    max-width: 100%;
+    font-feature-settings: 'ss05' on;
+    -webkit-text-size-adjust: 100%;
+
+    ::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+
+    /* Magic trick to remove margin-bottom of all <p> */
+    * + p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: $text-weight-bold;
+    letter-spacing: $text-tracking-variable-tight;
+}
+
+a {
+    color: $color-white;
+    font-weight: $text-weight-semibold;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        opacity: 0.75;
+    }
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+ol {
+    > li {
+        margin-left: $gutter * 2;
+        list-style-type: decimal;
+    }
+}
+
+/* Screen readers only */
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.list {
+    > li {
+        margin-bottom: $gutter * 2;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+button {
+    cursor: pointer;
+}
