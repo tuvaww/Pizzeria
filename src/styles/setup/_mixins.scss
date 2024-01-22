@@ -1,3 +1,104 @@
+@import './variables';
+
 @function spacing($size: '') {
     @return map-get($map: $spacings, $key: $size);
 }
+
+// Mixin to generate font styles
+@mixin font($style, $type) {
+    $fontInfo: map-get($font-properties, $style);
+
+    @if not map-has-key($fontInfo, $type) {
+        @error "Font style '#{$style}' with type '#{$type}' not found.";
+    }
+
+    $styleInfo: map-get($fontInfo, $type);
+
+    font-size: map-get($styleInfo, 'size');
+    font-family: $text__font;
+    font-weight: map-get($styleInfo, 'weight');
+    //line-height: map-get($styleInfo, 'line-height');
+
+    @if map-has-key($styleInfo, 'letter-spacing') {
+        letter-spacing: map-get($styleInfo, 'letter-spacing');
+    }
+}
+
+$font-properties: (
+    headline: (
+        xs: (
+            size: 16px,
+            weight: 600,
+            line-height: 24px,
+        ),
+        xsp: (
+            size: 18px,
+            weight: 600,
+            line-height: 24px,
+        ),
+        sm: (
+            size: 20px,
+            weight: 600,
+            line-height: 24px,
+        ),
+        md: (
+            size: 24px,
+            weight: 600,
+            line-height: 24px,
+        ),
+        lg: (
+            size: 34px,
+            weight: 600,
+            line-height: 24px,
+        ),
+    ),
+    caption: (
+        regular: (
+            size: 16px,
+            weight: 400,
+            line-height: 24px,
+        ),
+        semibold: (
+            size: 16px,
+            weight: 600,
+            line-height: 24px,
+        ),
+        bold: (
+            size: 16px,
+            weight: 700,
+            line-height: 24px,
+        ),
+    ),
+    bread-text: (
+        xs: (
+            size: 12px,
+            weight: 400,
+            line-height: 16px,
+        ),
+        sm: (
+            size: 14px,
+            weight: 400,
+            line-height: 18px,
+        ),
+        md: (
+            size: 16px,
+            weight: 400,
+            line-height: 20px,
+        ),
+        xs-semibold: (
+            size: 10px,
+            weight: 500,
+            line-height: 16px,
+        ),
+        sm-semibold: (
+            size: 14px,
+            weight: 500,
+            line-height: 18px,
+        ),
+        md-semibold: (
+            size: 16px,
+            weight: 500,
+            line-height: 20px,
+        ),
+    ),
+);

@@ -2,7 +2,7 @@
 
 .button {
     /* TODO - add real font */
-    //@include font(body-short, md);
+    @include font(headline, sm);
     position: relative;
     display: inline-flex;
     align-items: center;

@@ -1,19 +1,48 @@
 @import 'src/styles/index.scss';
 
 .header {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    position: absolute;
     justify-content: space-between;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: calc(spacing(md));
+
+    @media (min-width: $size__desktop--small) {
+        gap: $gutter * 8;
+        align-items: center;
+        justify-content: start;
+    }
 
     .linksContainer {
         display: none;
+
+        @media (min-width: $size__desktop--small) {
+            @include font(headline, sm);
+            display: flex;
+            align-items: center;
+            gap: $gutter * 7;
+        }
+
+        .link {
+            cursor: pointer;
+        }
+        .active {
+            color: $color-orange;
+        }
     }
 
     .hamburgerMenu {
         display: flex;
         flex-direction: column;
         gap: 4px;
+        cursor: pointer;
+
+        @media (min-width: $size__desktop--small) {
+            display: none;
+        }
 
         .menuItem {
             background-color: $color-orange;
@@ -28,6 +57,13 @@
         display: flex;
         justify-content: center;
         margin-top: spacing(xxxl);
+
+        @media (min-width: $size__desktop--medium-plus) {
+            flex: 1;
+            margin-top: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
 
         .buttonChildren {
             display: flex;

@@ -1,0 +1,76 @@
+@import 'src/styles/index';
+
+.footer {
+    background-color: $color-dark-grey;
+    display: flex;
+    flex-direction: column;
+    gap: $gutter * 4.5;
+    bottom: 0;
+    border: 1px solid yellow;
+    padding-top: $gutter * 4.5;
+    padding-bottom: spacing(xsp);
+
+    margin-top: $gutter * 7;
+
+    .logoContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .linkContainer {
+        display: flex;
+        justify-content: space-around;
+
+        @include font(headline, xsp);
+
+        @media (min-width: $size__container--md) {
+            padding: 0 $gutter * 4.5 0 $gutter * 4.5;
+            gap: spacing(xl);
+            justify-content: center;
+        }
+    }
+    .openHoursContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .openHours {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            gap: spacing(md);
+            color: $color-white;
+
+            .days {
+                @include font(headline, xs);
+            }
+            .time {
+                @include font(bread-text, sm);
+            }
+        }
+    }
+    .contactInfoContainer {
+        display: flex;
+        flex-direction: column;
+        @include font(bread-text, xs);
+        width: 100%;
+        color: $color-white;
+        padding: 0 spacing(lg) 0 spacing(lg);
+        gap: spacing(lg);
+
+        @media (min-width: $size__tablet--large) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .contactInfo,
+        .adress {
+            display: flex;
+            justify-content: space-between;
+
+            @media (min-width: $size__tablet--large) {
+                gap: spacing(md);
+            }
+        }
+    }
+}

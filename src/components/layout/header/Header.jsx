@@ -1,23 +1,26 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 import { MdDeliveryDining } from 'react-icons/md';
 
 import Logo from '../../../assets/logo/logo.svg';
 import { Link } from 'react-router-dom';
-import './header.scss';
 import { Button } from '../../../ui-components/button/Button';
+import { Links } from '../../../utils/constants';
+import './header.scss';
 
 export const Header = () => {
-    const links = [
-        { id: 1, title: 'Home', url: '/' },
-        { id: 2, title: 'Our menu', url: '/menu' },
-        { id: 3, title: 'Reservation', url: '/reservation' },
-        { id: 4, title: 'Career', url: '/career' },
-    ];
+    const location = useLocation();
+    const currentUrl = location.pathname;
 
-    const linkTemplate = links.map((link) => {
+    const linkTemplate = Links.map((link) => {
         const { title, url, id } = link;
         return (
-            <Link className='link' to={url} key={id}>
+            <Link
+                className={classNames('link', currentUrl === url && 'active')}
+                to={url}
+                key={id}
+            >
                 {title}
             </Link>
         );
@@ -35,7 +38,12 @@ export const Header = () => {
                 <div className='menuItem' />
             </div>
             <div className='buttonContainer'>
-                <Button to='/order-online' className='button'>
+                <Button
+                    to='/order-online'
+                    size='xl'
+                    width='wider'
+                    className='button'
+                >
                     <div className='buttonChildren'>
                         <MdDeliveryDining className='icon' />
                         <p>Order online</p>
