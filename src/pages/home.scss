@@ -1,0 +1,25 @@
+@import 'src/styles/index';
+
+.homeContainer {
+    .header {
+        background-image: url(../assets/images/flour_background.jpg);
+        height: 100vh;
+        background-size: cover;
+        width: 100vw;
+        z-index: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .headerImg {
+            display: none;
+
+            @media (min-width: $size__desktop--medium-plus) {
+                display: block;
+                position: absolute;
+                bottom: 0;
+            }
+        }
+    }
+}
