@@ -7,8 +7,7 @@ import Logo from '../../../assets/logo/logo.svg';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../ui-components/button/Button';
 import { Links } from '../../../utils/constants';
-import './header.scss';
-
+import styles from './style.module.scss';
 export const Header = () => {
     const location = useLocation();
     const currentUrl = location.pathname;
@@ -17,7 +16,10 @@ export const Header = () => {
         const { title, url, id } = link;
         return (
             <Link
-                className={classNames('link', currentUrl === url && 'active')}
+                className={classNames(
+                    styles.link,
+                    currentUrl === url && styles.active
+                )}
                 to={url}
                 key={id}
             >
@@ -27,25 +29,25 @@ export const Header = () => {
     });
 
     return (
-        <header className='header'>
+        <header className={styles.header}>
             <div>
                 <img src={Logo} alt='logo' />
             </div>
-            <div className='linksContainer'>{linkTemplate}</div>
-            <div className='hamburgerMenu'>
-                <div className='menuItem' />
-                <div className='menuItem' />
-                <div className='menuItem' />
+            <div className={styles.linksContainer}>{linkTemplate}</div>
+            <div className={styles.hamburgerMenu}>
+                <div className={styles.menuItem} />
+                <div className={styles.menuItem} />
+                <div className={styles.menuItem} />
             </div>
-            <div className='buttonContainer'>
+            <div className={styles.buttonContainer}>
                 <Button
                     to='/order-online'
                     size='xl'
                     width='wider'
-                    className='button'
+                    className={styles.button}
                 >
-                    <div className='buttonChildren'>
-                        <MdDeliveryDining className='icon' />
+                    <div className={styles.buttonChildren}>
+                        <MdDeliveryDining className={styles.icon} />
                         <p>Order online</p>
                     </div>
                 </Button>

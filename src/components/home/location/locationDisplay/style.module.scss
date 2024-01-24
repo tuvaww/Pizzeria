@@ -1,0 +1,84 @@
+@import 'src/styles/index';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+
+    .locationsDisplay {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: spacing(lg);
+        @include font(headline, sm);
+        position: relative;
+        width: 300px;
+
+        @media (min-width: $size__container--xs) {
+            justify-content: space-around;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .line {
+            display: none;
+
+            @media (min-width: $size__container--xs) {
+                display: block;
+                background-color: $color-black;
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                bottom: 12px;
+            }
+        }
+
+        .location {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: spacing(xs);
+            cursor: pointer;
+
+            .activeDot {
+                display: none;
+                @media (min-width: $size__container--xs) {
+                    display: block;
+
+                    z-index: 10;
+                    border: 2px solid $color-orange;
+                    padding: 4px;
+                    border-radius: 50%;
+                }
+
+                .activeInnerDot {
+                    display: none;
+                    @media (min-width: $size__container--xs) {
+                        display: block;
+                        height: 16px;
+                        width: 16px;
+                        background-color: $color-orange;
+                        z-index: 10;
+
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .dot {
+                .innerDot {
+                    display: none;
+                    @media (min-width: $size__container--xs) {
+                        display: block;
+                        height: 16px;
+                        width: 16px;
+                        background-color: $color-black;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}

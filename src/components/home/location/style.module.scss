@@ -1,0 +1,98 @@
+@import 'src/styles/index';
+
+.locationContainer {
+    background-color: $color-white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: spacing(xxxl) spacing(sm) spacing(xxxl) spacing(sm);
+    gap: $gutter * 10;
+
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @include font(headline, lg);
+    }
+
+    .mapWrapper {
+        order: 0;
+        @media (min-width: $size__container--md) {
+            height: 278px;
+            order: 3;
+        }
+    }
+
+    .img {
+        display: none;
+        height: auto;
+
+        @media (min-width: $size__tablet--large) {
+            display: block;
+            height: 278px;
+            width: auto;
+        }
+
+        @media (min-width: $size__container--md) {
+            display: none;
+        }
+
+        @media (min-width: $size__desktop--large) {
+            display: block;
+            height: 278px;
+            width: auto;
+        }
+    }
+
+    .infoWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: spacing(xxxl);
+
+        .adress {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .city {
+                @include font(headline, md);
+                margin-bottom: spacing(md);
+            }
+            .street,
+            .postal {
+                @include font(caption, regular);
+            }
+
+            .postal {
+                margin-top: spacing(xs);
+            }
+        }
+        .openHoursWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .headline {
+                @include font(headline, md);
+                margin-bottom: spacing(md);
+            }
+
+            .openHours {
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        .phone {
+            display: flex;
+            align-items: center;
+            gap: spacing(md);
+            @include font(caption, regular);
+
+            .icon {
+                color: $color-dark-green;
+            }
+        }
+    }
+}

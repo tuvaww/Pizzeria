@@ -10,7 +10,6 @@
     top: 0;
     left: 0;
     right: 0;
-    //margin: calc(spacing(md));
 
     @media (min-width: $size__desktop--small) {
         gap: $gutter * 8;

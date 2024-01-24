@@ -1,9 +1,11 @@
 @import 'src/styles/index';
 
 .homeContainer {
+    display: flex;
+    flex-direction: column;
     .header {
         background-image: url(../assets/images/flour_background.jpg);
-        height: 100vh;
+        height: 350px;
         background-size: cover;
         width: 100vw;
         z-index: 0;
@@ -11,6 +13,11 @@
         display: flex;
         justify-content: center;
         position: relative;
+        background-repeat: no-repeat;
+
+        @media (min-width: $size__desktop--medium-plus) {
+            height: 100vh;
+        }
 
         .headerImg {
             display: none;

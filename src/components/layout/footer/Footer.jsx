@@ -2,13 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Links, OpenHours } from '../../../utils/constants';
 import Logo from '../../../assets/logo/logo.svg';
-import './footer.scss';
-
+import styles from './style.module.scss';
 export const Footer = () => {
     const linkTemplate = Links.map((link) => {
         const { title, url, id } = link;
         return (
-            <Link className='link' to={url} key={id}>
+            <Link className={styles.link} to={url} key={id}>
                 {title}
             </Link>
         );
@@ -18,27 +17,27 @@ export const Footer = () => {
         const { days, time, id } = obj;
 
         return (
-            <div className='openHours' key={id}>
-                <p className='days'>{days}:</p>
-                <p className='time'>{time}</p>
+            <div className={styles.openHours} key={id}>
+                <p className={styles.days}>{days}:</p>
+                <p className={styles.time}>{time}</p>
             </div>
         );
     });
 
     return (
-        <footer className='footer'>
-            <div className='logoContainer'>
+        <footer className={styles.footer}>
+            <div className={styles.logoContainer}>
                 <img src={Logo} alt='logo' />
             </div>
-            <div className='linkContainer'>{linkTemplate}</div>
-            <div className='openHoursContainer'>{openHoursTemplate}</div>
-            <div className='contactInfoContainer'>
-                <div className='contactInfo'>
+            <div className={styles.linkContainer}>{linkTemplate}</div>
+            <div className={styles.openHoursContainer}>{openHoursTemplate}</div>
+            <div className={styles.contactInfoContainer}>
+                <div className={styles.contactInfo}>
                     <p>Crust@Exempel.com</p>
                     <p>+46783457588</p>
                 </div>
 
-                <div className='adress'>
+                <div className={styles.adress}>
                     <p>Stockholm</p>
                     <p>125 57 Älvsjö</p>
                     <p>Testvägen 40</p>
