@@ -12,7 +12,10 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        @include font(headline, lg);
+
+        h2 {
+            @include font(headline, lg);
+        }
     }
 
     .mapWrapper {

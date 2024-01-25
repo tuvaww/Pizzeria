@@ -42,11 +42,28 @@
             gap: spacing(xs);
             cursor: pointer;
 
+            .hover {
+                opacity: 0.7;
+            }
+
+            .activeCity {
+                color: $color-orange;
+
+                @media (min-width: $size__container--xs) {
+                    color: $color-black;
+                }
+            }
+
+            .city {
+                cursor: pointer;
+                @include font(headline, sm);
+            }
+
             .activeDot {
+                cursor: pointer;
                 display: none;
                 @media (min-width: $size__container--xs) {
                     display: block;
-
                     z-index: 10;
                     border: 2px solid $color-orange;
                     padding: 4px;
@@ -68,6 +85,8 @@
             }
 
             .dot {
+                cursor: pointer;
+
                 .innerDot {
                     display: none;
                     @media (min-width: $size__container--xs) {

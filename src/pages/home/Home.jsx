@@ -1,7 +1,8 @@
 import React from 'react';
-import Pizza from '../assets/images/pizza_half.png';
-import { Location } from '../components/home/location/Location';
+import Pizza from '../../assets/images/pizza_half.png';
+import { Location } from '../../components/home/location/Location';
 import styles from './style.module.scss';
+import { Recommendations } from '../../components/home/recommendations/Recommendations';
 export const Home = () => {
     return (
         <div className={styles.homeContainer}>
@@ -9,6 +10,7 @@ export const Home = () => {
                 <img className={styles.headerImg} src={Pizza} alt='pizza' />
             </div>
             <Location />
+            <Recommendations />
         </div>
     );
 };

@@ -1,0 +1,52 @@
+@import 'src/styles/index';
+
+.container {
+    background-image: url(../../../assets/images/marble.jpg);
+    width: 100vw;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gutter * 10;
+    padding: spacing(xxxl) 0 spacing(xxxl) 0;
+
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        h2 {
+            @include font(headline, lg);
+        }
+    }
+
+    .itemsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $gutter * 12;
+
+        .wrapper {
+            position: relative;
+            width: min-content;
+            border: 1px solid red;
+            .img {
+                height: 230px;
+                width: 300px;
+                border-radius: $rounded-xs;
+            }
+
+            .info {
+                width: 230px;
+                padding: spacing(md);
+                background-color: $color-white;
+                border-radius: $rounded-xs;
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}

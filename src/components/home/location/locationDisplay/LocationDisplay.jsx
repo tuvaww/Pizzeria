@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Locations } from '../../../../utils/constants';
 import styles from './style.module.scss';
 import classNames from 'classnames';
 
-export const LocationDisplay = () => {
-    const [activeCity, setActiveCity] = useState(1);
+export const LocationDisplay = ({ handleLocationChange }) => {
+    const [activeLocation, setActiveLocation] = useState(1);
+    const [hoverId, setHoverId] = useState(0);
 
-    const handleChangeCity = (id) => {
-        setActiveCity(id);
-    };
+    useEffect(() => {
+        handleLocationChange(activeLocation);
+    }, [activeLocation]);
 
     const locationTemplate = Locations.map((location) => {
         const { id, city } = location;
+
         return (
             <div
                 className={styles.location}
                 key={id}
-                onClick={() => handleChangeCity(id)}
+                onClick={() => setActiveLocation(id)}
+                onMouseEnter={() => setHoverId(id)}
+                onMouseLeave={() => setHoverId(0)}
             >
-                <p className={styles.city}>{city}</p>
+                <p
+                    className={classNames(
+                        hoverId === id && styles.hover,
+                        activeLocation === id ? styles.activeCity : styles.city
+                    )}
+                >
+                    {city}
+                </p>
                 <div
                     className={classNames(
-                        activeCity === id ? styles.activeDot : styles.dot
+                        activeLocation === id ? styles.activeDot : styles.dot
                     )}
                 >
                     <div
                         className={classNames(
-                            activeCity === id
+                            activeLocation === id
                                 ? styles.activeInnerDot
                                 : styles.innerDot
                         )}
@@ -43,4 +55,8 @@ export const LocationDisplay = () => {
             </div>
         </div>
     );
+};
+
+LocationDisplay.propTypes = {
+    handleLocationChange: PropTypes.func.isRequired,
 };
