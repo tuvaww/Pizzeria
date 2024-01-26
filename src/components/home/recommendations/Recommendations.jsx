@@ -6,7 +6,7 @@ import styles from './style.module.scss';
 export const Recommendations = () => {
     const recommendedItemTemplate = Pizzas.map((pizza) => {
         const { id, name, price, src } = pizza;
-        if (id <= 3) {
+        if (id <= 4) {
             return (
                 <div key={id} className={styles.wrapper}>
                     <img
@@ -15,12 +15,19 @@ export const Recommendations = () => {
                         alt={name}
                     />
                     <div className={styles.info}>
-                        <p>{name}</p>
-                        <p>{price}</p>
+                        <div className={styles.infoWrapper}>
+                            <div className={styles.circle}>
+                                <div className={styles.innerCircle} />
+                            </div>
+                            <p className={styles.name}>{name}</p>
+                            <p className={styles.price}>{price} $</p>
 
-                        <Button to='/order' size='xs' width='fill'>
-                            Order now
-                        </Button>
+                            <div className={styles.buttonContainer}>
+                                <Button to='/order' size='xs' width='fill'>
+                                    Order now
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             );

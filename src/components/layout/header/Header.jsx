@@ -47,7 +47,7 @@ export const Header = () => {
                     className={styles.button}
                 >
                     <div className={styles.buttonChildren}>
-                        <MdDeliveryDining className={styles.icon} />
+                        <MdDeliveryDining className={styles.icon} size={37} />
                         <p>Order online</p>
                     </div>
                 </Button>

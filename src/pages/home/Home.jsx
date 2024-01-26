@@ -3,6 +3,7 @@ import Pizza from '../../assets/images/pizza_half.png';
 import { Location } from '../../components/home/location/Location';
 import styles from './style.module.scss';
 import { Recommendations } from '../../components/home/recommendations/Recommendations';
+import { BuildYourPizza } from '../../components/home/buildYourPizza/BuildYourPizza';
 export const Home = () => {
     return (
         <div className={styles.homeContainer}>
@@ -11,6 +12,7 @@ export const Home = () => {
             </div>
             <Location />
             <Recommendations />
+            <BuildYourPizza />
         </div>
     );
 };

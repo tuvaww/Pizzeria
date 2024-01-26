@@ -17,6 +17,7 @@
 
         @media (min-width: $size__desktop--medium-plus) {
             height: 100vh;
+            max-height: 700px;
         }
 
         .headerImg {

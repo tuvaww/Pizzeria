@@ -70,6 +70,12 @@ $rounded-xl: 12px;
 $rounded-xxl: 14px;
 $rounded-xxxl: 16px;
 
+/* Shadows */
+$shadow-sm: 0px 2px 4px rgba(0, 0, 0, 0.08) !default;
+$shadow-md: 0px 4px 12px rgba(0, 0, 0, 0.08) !default;
+$shadow-lg: 0px 8px 20px rgba(0, 0, 0, 0.12) !default;
+$shadow-xl: 0px 8px 24px rgba(0, 0, 0, 0.16) !default;
+
 $text-weight-regular: 400 !default;
 $text-weight-semibold: 600 !default;
 $text-weight-bold: 700 !default;
