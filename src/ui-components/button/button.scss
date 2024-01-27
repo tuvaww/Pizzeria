@@ -111,7 +111,7 @@
         background-color: $color-dark-grey;
     }
 
-    &[disabled] {
+    &[ui-disabled='true'] {
         cursor: not-allowed;
         color: $color_black;
         background-color: $color-light-grey;

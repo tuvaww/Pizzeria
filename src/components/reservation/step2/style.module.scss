@@ -1,0 +1,31 @@
+@import 'src/styles/index';
+
+.container {
+    border: 1px solid red;
+
+    .slots {
+        display: flex;
+        flex-wrap: wrap;
+        gap: spacing(md);
+
+        .slot {
+            padding: spacing(sm);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid $color-dark-green;
+            border-radius: $rounded-md;
+            @include font(caption, regular);
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        .selected {
+            background-color: $color-dark-green;
+            color: $color-white;
+        }
+    }
+}

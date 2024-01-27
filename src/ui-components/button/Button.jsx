@@ -14,7 +14,7 @@ export const Button = forwardRef(
             width = 'wide',
             radius = 'md',
             color = 'primary',
-            disabled = false,
+            disabled = 'false',
             className = '',
             ...attributes
         },
@@ -31,7 +31,7 @@ export const Button = forwardRef(
                 ui-width={width}
                 ui-radius={radius}
                 ui-color={color}
-                disabled={disabled}
+                ui-disabled={disabled}
                 className={classNames('button', className)}
                 {...attributes}
             >
@@ -51,6 +51,6 @@ Button.propTypes = {
     width: PropTypes.oneOf(['fill', 'half', 'wide', 'wider', null]),
     radius: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg']),
     color: PropTypes.oneOf(['primary', 'transparent', 'grey']),
-    disabled: PropTypes.bool,
+    disabled: PropTypes.string,
     className: PropTypes.string,
 };

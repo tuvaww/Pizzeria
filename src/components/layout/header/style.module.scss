@@ -59,9 +59,12 @@
         justify-content: center;
         margin-top: spacing(xxxl);
 
+        @media (min-width: $size__desktop--small) {
+            margin-top: 0;
+        }
+
         @media (min-width: $size__desktop--medium-plus) {
             flex: 1;
-            margin-top: 0;
             display: flex;
             justify-content: flex-end;
         }
