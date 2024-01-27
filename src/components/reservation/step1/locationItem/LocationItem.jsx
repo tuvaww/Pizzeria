@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { MdLocationOn } from 'react-icons/md';
 import styles from './style.module.scss';
 import classNames from 'classnames';

@@ -1,0 +1,34 @@
+@import 'src/styles/index';
+
+.spinner {
+    $spinner-sizes: (
+        'sm': 20px,
+        'md': 30px,
+        'lg': 40px,
+        'xl': 50px,
+        'xxl': 60px,
+    );
+
+    border-radius: 50%;
+    border-style: solid;
+    border-color: $color-orange $color-orange rgba($color-orange, 0.2)
+        rgba($color-orange, 0.2);
+    border-width: 2px;
+    animation: spin 0.7s cubic-bezier(0.3, 0.5, 0.7, 0.5) infinite;
+
+    @each $sizeName, $size in $spinner-sizes {
+        &[data-ui-size='#{$sizeName}'] {
+            width: $size;
+            height: $size;
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

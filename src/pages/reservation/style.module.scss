@@ -10,6 +10,10 @@
     gap: spacing(md);
     padding-top: 280px;
 
+    @media (min-width: $size__desktop--small) {
+        padding-top: 300px;
+    }
+
     @media (min-width: $size__desktop--medium-plus) {
         padding-top: 180px;
     }

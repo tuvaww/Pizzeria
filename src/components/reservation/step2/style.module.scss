@@ -1,14 +1,37 @@
 @import 'src/styles/index';
 
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .container {
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .slots {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: spacing(md);
+        width: 100%;
+        min-height: 124px;
+
+        @media (min-width: 449px) {
+            min-height: 78px;
+        }
+        @media (min-width: 769px) {
+            min-height: 30px;
+        }
 
         .slot {
+            animation: opacity 1s ease-in-out;
             padding: spacing(sm);
             display: flex;
             justify-content: center;
@@ -17,6 +40,8 @@
             border-radius: $rounded-md;
             @include font(caption, regular);
             cursor: pointer;
+            width: 80px;
+            height: 30px;
 
             &:hover {
                 opacity: 0.6;

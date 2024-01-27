@@ -8,6 +8,11 @@ import { getLocalStorage, setLocalStorage } from '../../utils/storageUtils';
 export const Reservation = () => {
     const [step, setStep] = useState(1);
     const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState('false');
+    const titles = [
+        'Choose location',
+        'Choose date and time',
+        'Add booking information',
+    ];
     const [booking, setBooking] = useState({
         location: '',
         date: '',
@@ -37,16 +42,26 @@ export const Reservation = () => {
             setNextButtonIsDisabled(disabled);
             return;
         }
-    }, [location, step]);
+    }, [location, step, date, time]);
 
     useEffect(() => {
         const localStorage = getLocalStorage('reservation');
         if (localStorage) {
-            console.log('local s', localStorage);
-        } else {
+            const { location, date, time } = localStorage;
+            setBooking((prevState) => ({
+                ...prevState,
+                location: location,
+                date: date,
+                time: time,
+            }));
+        }
+    }, []);
+
+    useEffect(() => {
+        if (location || date || time) {
             setLocalStorage('reservation', booking);
         }
-    }, [location]);
+    }, [location, date, time, booking]);
 
     const handleNext = () => {
         if (nextButtonIsDisabled === 'true') {
@@ -65,7 +80,16 @@ export const Reservation = () => {
             [key]: value,
         }));
     };
-
+    const handleTitle = () => {
+        if (step === 1) {
+            return titles[0];
+        }
+        if (step === 2) {
+            return titles[1];
+        } else {
+            return titles[2];
+        }
+    };
     return (
         <div className={styles.container}>
             <div className={styles.steps}>
@@ -77,12 +101,14 @@ export const Reservation = () => {
 
             <div className={styles.section}>
                 <div className={styles.header}>
-                    <h2>test</h2>
+                    <h2>{handleTitle()}</h2>
                 </div>
                 {step === 1 && (
                     <Step1 handleUpdateBooking={handleUpdateBooking} />
                 )}
-                {step === 2 && <Step2 />}
+                {step === 2 && (
+                    <Step2 handleUpdateBooking={handleUpdateBooking} />
+                )}
 
                 <div className={styles.buttonContainer}>
                     <div className={styles.buttonWrapper}>
