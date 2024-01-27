@@ -1,0 +1,53 @@
+@import 'src/styles/index';
+
+.container {
+    &[ui-width='fill'] {
+        width: 100%;
+    }
+
+    &[ui-width='half'] {
+        width: 50%;
+    }
+
+    .inputWrapper {
+        position: relative;
+
+        .input {
+            width: 100%;
+            height: $gutter * 6;
+            border-radius: $rounded-sm;
+            padding-left: spacing(md);
+            @include font(body-short, sm-semibold);
+
+            &[ui-clear='true'] {
+                padding-right: spacing(xxl);
+            }
+        }
+
+        .clearButton {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: $gutter * 2;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            &[ui-clear='true'] {
+                display: flex;
+            }
+
+            &::after {
+                content: '\00d7';
+                margin-top: -1px;
+                font-size: calc-rem(30);
+                color: $color-light-grey;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
