@@ -50,13 +50,24 @@
         align-items: center;
         gap: spacing(xxxl);
         padding: spacing(xl) spacing(md) spacing(sm) spacing(md);
+        position: relative;
+        height: fit-content;
+
+        @media (min-width: 445px) {
+            height: 640px;
+        }
+        @media (min-width: 552px) {
+            height: 594px;
+        }
 
         .buttonContainer {
             width: 100%;
             display: flex;
             justify-content: flex-end;
             gap: spacing(md);
-
+            position: absolute;
+            bottom: spacing(sm);
+            right: spacing(md);
             .buttonWrapper {
                 width: 100px;
             }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from './style.module.scss';
 import { Step1 } from '../../components/reservation/step1/Step1';
-import { Button } from '../../ui-components/button/Button';
 import { Step2 } from '../../components/reservation/step2/Step2';
+import { Step3 } from '../../components/reservation/step3/Step3';
+
+import { Button } from '../../ui-components/button/Button';
 import { getLocalStorage, setLocalStorage } from '../../utils/storageUtils';
 
 export const Reservation = () => {
@@ -109,31 +111,35 @@ export const Reservation = () => {
                 {step === 2 && (
                     <Step2 handleUpdateBooking={handleUpdateBooking} />
                 )}
+                {step === 3 && <Step3 booking={booking} />}
 
                 <div className={styles.buttonContainer}>
-                    <div className={styles.buttonWrapper}>
-                        {step > 1 && (
+                    {step > 1 && (
+                        <div className={styles.buttonWrapper}>
                             <Button
-                                width='fill'
-                                size='xs'
-                                radius='sm'
+                                width="fill"
+                                size="xs"
+                                radius="sm"
                                 onClick={handleBack}
                             >
                                 Back
                             </Button>
-                        )}
-                    </div>
-                    <div className={styles.buttonWrapper}>
-                        <Button
-                            width='fill'
-                            size='xs'
-                            radius='sm'
-                            onClick={handleNext}
-                            disabled={nextButtonIsDisabled}
-                        >
-                            Next
-                        </Button>
-                    </div>
+                        </div>
+                    )}
+
+                    {step < 3 && (
+                        <div className={styles.buttonWrapper}>
+                            <Button
+                                width="fill"
+                                size="xs"
+                                radius="sm"
+                                onClick={handleNext}
+                                disabled={nextButtonIsDisabled}
+                            >
+                                Next
+                            </Button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

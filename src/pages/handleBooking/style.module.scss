@@ -1,0 +1,26 @@
+@import 'src/styles/index';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal {
+        width: 90%;
+        height: 300px;
+        max-width: 400px;
+        background-color: $color-white;
+        border-radius: $rounded-md;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: spacing(lg);
+        padding: spacing(md);
+        .header {
+            width: 100%;
+            text-align: center;
+            @include font(headline, md);
+        }
+    }
+}

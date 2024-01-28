@@ -6,7 +6,10 @@ const path = require('path');
 
 dotenv.config();
 
-const { MONGODB_CONNECTION_STRING, PORT } = process.env;
+const bookingEndpoints = require('./endpoints/booking/booking');
+
+const { MONGODB_CONNECTION_STRING } = process.env;
+const PORT = process.env.PORT || 8080;
 
 const connectToDatabase = async () => {
     try {
@@ -34,6 +37,7 @@ const setupMiddlewares = (app) => {
         );
         next();
     });
+    app.use('/bookings', bookingEndpoints);
 
     app.use((error, req, res, next) => {
         console.error(error);

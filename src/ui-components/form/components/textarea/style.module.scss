@@ -1,0 +1,42 @@
+@import 'src/styles/index';
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: spacing(xs);
+    @include font(bread-text, sm);
+    width: 100%;
+
+    .label {
+        color: $color-black;
+        @include font(caption, semibold);
+    }
+
+    .textarea {
+        resize: none;
+        height: 180px;
+        padding: spacing(sm);
+        border-radius: $rounded-xs;
+        outline: none;
+        color: $color-black;
+        background-color: $color-light-grey;
+        @include font(bread-text, sm);
+
+        &:focus {
+            background-color: $color-white;
+        }
+    }
+
+    .maxLength {
+        position: absolute;
+        bottom: spacing(sm);
+        right: spacing(sm);
+        color: $color-light-grey;
+        @include font(caption, semibold);
+
+        .short {
+            color: $color-light-red;
+        }
+    }
+}

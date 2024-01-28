@@ -1,0 +1,12 @@
+@import 'src/styles/index';
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .msg {
+        color: $color-light-red;
+        @include font(bread-text, sm);
+        margin: spacing(xsp) 0 0 spacing(xs);
+    }
+}

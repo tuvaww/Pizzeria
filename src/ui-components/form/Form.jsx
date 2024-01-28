@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useMemo, useState } from 'react';
 import { FormContext } from '../../contexts/FormContext/FormContext';
-import InputField from './components/InputField';
+import { InputField } from './components/inputField/InputField';
+import { Textarea } from './components/textarea/Textarea';
 
-const Form = ({
+export const Form = ({
     children,
     className,
     onSubmit,
@@ -68,8 +69,6 @@ const Form = ({
     );
 };
 
-export default Form;
-
 Form.propTypes = {
     children: PropTypes.node.isRequired,
     onSubmit: PropTypes.func.isRequired,
@@ -80,7 +79,3 @@ Form.propTypes = {
 
 Form.InputField = InputField;
 Form.Textarea = Textarea;
-Form.SelectBox = SelectBox;
-Form.CheckBox = CheckBox;
-Form.RadioButton = RadioButton;
-Form.DateSelector = DateSelector;

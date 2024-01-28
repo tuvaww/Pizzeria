@@ -17,6 +17,41 @@
     },
     "plugins": ["react", "react-hooks"],
     "rules": {
-        //add customize rules here as per your project's needs
+        "max-classes-per-file": "off",
+        "no-restricted-syntax": "off",
+        "max-len": [
+            "error",
+            200,
+            1,
+            {
+                "ignoreUrls": true,
+                "ignoreComments": true,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": false
+            }
+        ],
+        "react/no-unknown-property": "off",
+        "react/forbid-prop-types": [
+            "error",
+            {
+                "forbid": ["any"],
+                "checkContextTypes": true,
+                "checkChildContextTypes": true
+            }
+        ],
+        "react/function-component-definition": [
+            "error",
+            {
+                "namedComponents": [
+                    "function-declaration",
+                    "function-expression",
+                    "arrow-function"
+                ],
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+//        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "react/no-invalid-html-attribute": "off"
     }
 }

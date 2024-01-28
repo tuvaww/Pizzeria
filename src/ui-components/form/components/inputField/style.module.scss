@@ -11,13 +11,25 @@
 
     .inputWrapper {
         position: relative;
+        display: flex;
+        flex-direction: column;
+
+        .label {
+            @include font(caption, semibold);
+        }
 
         .input {
             width: 100%;
-            height: $gutter * 6;
+            height: spacing(xl);
             border-radius: $rounded-sm;
             padding-left: spacing(md);
-            @include font(body-short, sm-semibold);
+            @include font(bread-text, sm);
+            background-color: $color-light-grey;
+            border: 1px solid $color-dark-green;
+
+            &:focus {
+                background-color: $color-white;
+            }
 
             &[ui-clear='true'] {
                 padding-right: spacing(xxl);
