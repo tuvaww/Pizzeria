@@ -33,7 +33,7 @@ const createBooking = async (req, res) => {
 
         const savedBookingId = newBooking._id;
 
-        sendBookingConfirmation(savedBookingId, email);
+        sendBookingConfirmation(savedBookingId, email, location, date, time);
 
         success(res, { message: 'success when creating reservation' }, 200);
     } catch (error) {
@@ -52,7 +52,37 @@ const getBooking = async (req, res) => {
         console.log('error', error);
     }
 };
+
+const deleteBooking = async (req, res) => {
+    try {
+        const { id } = req.body;
+        await Booking.findByIdAndDelete(id);
+
+        success(res, { message: 'booking deleted' }, 200);
+    } catch (error) {
+        console.log('error', error);
+    }
+};
+
+const updateBooking = async (req, res) => {
+    try {
+        const { id, location, date, time } = req.body;
+
+        const { email } = await Booking.findOneAndUpdate(
+            { _id: id },
+            { location, date, time }
+        );
+        sendBookingConfirmation(id, email, location, date, time);
+
+        success(res, { message: 'booking updated' }, 200);
+    } catch (error) {
+        console.log('error', error);
+    }
+};
+
 module.exports = {
     createBooking,
     getBooking,
+    deleteBooking,
+    updateBooking,
 };

@@ -54,7 +54,7 @@ const generateToken = (userId) => {
     return token;
 };
 
-const sendBookingConfirmation = (id, email) => {
+const sendBookingConfirmation = (id, email, location, date, time) => {
     const verificationToken = generateToken(id);
 
     const verificationUrl = `${process.env.REACT_APP_INTERNAL_CLIENT_HOST}/handle-booking?token=${verificationToken}&email=${email}&id=${id}`;
@@ -62,22 +62,25 @@ const sendBookingConfirmation = (id, email) => {
     const emailTemplatePath =
         'server/utils/EmailTemplates/confirmationTemplate.ejs';
 
-    ejs.renderFile(
-        emailTemplatePath,
-        { verificationUrl },
-        async (err, html) => {
-            if (err) {
-                console.error('Error rendering email template:', err);
-                return;
-            }
+    const templateData = {
+        verificationUrl,
+        location,
+        date,
+        time,
+    };
 
-            await sendMail({
-                to: email,
-                subject: 'Verifiera din e-postadress',
-                html,
-            });
+    ejs.renderFile(emailTemplatePath, templateData, async (err, html) => {
+        if (err) {
+            console.error('Error rendering email template:', err);
+            return;
         }
-    );
+
+        await sendMail({
+            to: email,
+            subject: 'Booking confirmation',
+            html,
+        });
+    });
 };
 
 module.exports = {

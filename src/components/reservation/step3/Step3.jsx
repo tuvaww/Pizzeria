@@ -20,6 +20,8 @@ export const Step3 = ({booking}) => {
 
     const onSuccess = () => {
         setSucess(true)
+        localStorage.clear();
+
     };
     return (
         <div className={styles.container}>

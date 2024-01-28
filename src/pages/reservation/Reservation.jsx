@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import styles from './style.module.scss';
+import { useLocation } from 'react-router-dom';
 import { Step1 } from '../../components/reservation/step1/Step1';
 import { Step2 } from '../../components/reservation/step2/Step2';
 import { Step3 } from '../../components/reservation/step3/Step3';
-
 import { Button } from '../../ui-components/button/Button';
 import { getLocalStorage, setLocalStorage } from '../../utils/storageUtils';
+import styles from './style.module.scss';
+import { postRequest } from '../../utils/requestUtils';
 
 export const Reservation = () => {
+    const locationUrl = useLocation();
+    const queryParams = new URLSearchParams(locationUrl.search);
+    const rebook = queryParams.get('rebook');
+    const id = queryParams.get('id');
+    const [rebookingConfirmed, setRebookingConfirmed] = useState(false);
     const [step, setStep] = useState(1);
     const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState('false');
     const titles = [
@@ -65,11 +71,17 @@ export const Reservation = () => {
         }
     }, [location, date, time, booking]);
 
-    const handleNext = () => {
-        if (nextButtonIsDisabled === 'true') {
-            return;
+    const handleNext = async () => {
+        if (rebook && step === 2) {
+            const newBooking = { ...booking, id };
+            await postRequest('/bookings/update', newBooking);
+            setRebookingConfirmed(true);
         } else {
-            setStep((prevState) => prevState + 1);
+            if (nextButtonIsDisabled === 'true') {
+                return;
+            } else {
+                setStep((prevState) => prevState + 1);
+            }
         }
     };
     const handleBack = () => {
@@ -94,12 +106,19 @@ export const Reservation = () => {
     };
     return (
         <div className={styles.container}>
-            <div className={styles.steps}>
-                <div className={step === 1 ? styles.active : styles.step}></div>
-                <div className={step === 2 ? styles.active : styles.step}></div>
-
-                <div className={step === 3 ? styles.active : styles.step}></div>
-            </div>
+            {!rebook && (
+                <div className={styles.steps}>
+                    <div
+                        className={step === 1 ? styles.active : styles.step}
+                    ></div>
+                    <div
+                        className={step === 2 ? styles.active : styles.step}
+                    ></div>
+                    <div
+                        className={step === 3 ? styles.active : styles.step}
+                    ></div>
+                </div>
+            )}
 
             <div className={styles.section}>
                 <div className={styles.header}>
@@ -111,7 +130,11 @@ export const Reservation = () => {
                 {step === 2 && (
                     <Step2 handleUpdateBooking={handleUpdateBooking} />
                 )}
-                {step === 3 && <Step3 booking={booking} />}
+                {step === 3 && !rebook && <Step3 booking={booking} />}
+
+                {rebookingConfirmed && (
+                    <h2 className={styles.text}>Booking confirmed!</h2>
+                )}
 
                 <div className={styles.buttonContainer}>
                     {step > 1 && (
@@ -136,7 +159,7 @@ export const Reservation = () => {
                                 onClick={handleNext}
                                 disabled={nextButtonIsDisabled}
                             >
-                                Next
+                                {step === 2 && rebook ? 'Book' : 'Next'}
                             </Button>
                         </div>
                     )}

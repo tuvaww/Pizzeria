@@ -7,7 +7,6 @@ const constructApiUrl = (url) => {
 export const getRequest = async (url) => {
     try {
         const apiUrl = constructApiUrl(url);
-        console.log(url);
         const response = await axios.get(apiUrl);
         return response.data;
     } catch (error) {

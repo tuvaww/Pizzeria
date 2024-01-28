@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { getRequest } from '../../utils/requestUtils';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getRequest, postRequest } from '../../utils/requestUtils';
 import { Button } from '../../ui-components/button/Button';
 import styles from './style.module.scss';
 
 export const HandleBooking = () => {
+    const navigate = useNavigate();
     const locationUrl = useLocation();
     const queryParams = new URLSearchParams(locationUrl.search);
     const id = queryParams.get('id');
@@ -38,6 +39,16 @@ export const HandleBooking = () => {
         handleGetBooking();
     }, [id]);
 
+    const handleCancelBooking = async () => {
+        await postRequest('/bookings/delete', { id });
+
+        navigate('/');
+    };
+
+    const handleReebooking = () => {
+        navigate(`/reservation?rebook=true&id=${id}`);
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.modal}>
@@ -49,9 +60,13 @@ export const HandleBooking = () => {
                     <p>Time: {time}</p>
                 </div>
 
-                <div>
-                    <Button>Cancel booking</Button>
-                    <Button>Rebook</Button>
+                <div className={styles.buttonContainer}>
+                    <Button size="sm" radius="sm" onClick={handleCancelBooking}>
+                        Cancel booking
+                    </Button>
+                    <Button size="sm" radius="sm" onClick={handleReebooking}>
+                        Rebook
+                    </Button>
                 </div>
             </div>
         </div>
