@@ -34,7 +34,6 @@ export const Step2 = ({ handleUpdateBooking }) => {
         const day = String(currentDate.getDate()).padStart(2, '0');
 
         const formattedDate = `${year}-${month}-${day}`;
-        console.log('formattedDate', formattedDate);
 
         setSelectedDate(formattedDate);
 

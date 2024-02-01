@@ -51,7 +51,7 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
-//        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
         "react/no-invalid-html-attribute": "off"
     }
 }

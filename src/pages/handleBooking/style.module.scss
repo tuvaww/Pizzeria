@@ -15,7 +15,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: spacing(lg);
+        gap: spacing(xl);
         padding: spacing(md);
         position: relative;
 
@@ -26,11 +26,21 @@
         }
 
         .text {
-            @include font(headline, xs);
+            @include font(bread-text, sm);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: spacing(sm);
+            gap: spacing(lg);
+
+            .wrapper {
+                display: flex;
+                align-items: center;
+                gap: spacing(sm);
+
+                p {
+                    vertical-align: bottom;
+                }
+            }
         }
 
         .buttonContainer {

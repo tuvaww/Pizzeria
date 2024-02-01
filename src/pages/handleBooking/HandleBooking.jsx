@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getRequest, postRequest } from '../../utils/requestUtils';
 import { Button } from '../../ui-components/button/Button';
+import { MdLocationOn } from 'react-icons/md';
+import { FaCalendarDays } from 'react-icons/fa6';
+import { GoClockFill } from 'react-icons/go';
+
 import styles from './style.module.scss';
 
 export const HandleBooking = () => {
@@ -55,9 +59,18 @@ export const HandleBooking = () => {
                 <h2 className={styles.header}>Handle booking</h2>
 
                 <div className={styles.text}>
-                    <p>Location: {location}</p>
-                    <p>Date: {date}</p>
-                    <p>Time: {time}</p>
+                    <div className={styles.wrapper}>
+                        <MdLocationOn size={22} />
+                        <p>Location: {location}</p>
+                    </div>
+                    <div className={styles.wrapper}>
+                        <FaCalendarDays size={22} />
+                        <p>Date: {date}</p>
+                    </div>
+                    <div className={styles.wrapper}>
+                        <GoClockFill size={22} />
+                        <p>Time: {time}</p>
+                    </div>
                 </div>
 
                 <div className={styles.buttonContainer}>
