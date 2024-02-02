@@ -13,7 +13,7 @@ export const BuildYourPizza = () => {
             <div className={styles.wrapper}>
                 <img
                     src={PizzaBaker}
-                    alt='pizza baker illustration'
+                    alt="pizza baker illustration"
                     className={styles.img}
                 />
 
@@ -27,7 +27,7 @@ export const BuildYourPizza = () => {
                     </p>
 
                     <div className={styles.buttonWrapper}>
-                        <Button to='/' width='fill'>
+                        <Button to="/" width="fill">
                             Lets bake !
                         </Button>
                     </div>

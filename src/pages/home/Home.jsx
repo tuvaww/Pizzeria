@@ -8,7 +8,7 @@ export const Home = () => {
     return (
         <div className={styles.homeContainer}>
             <div className={styles.header}>
-                <img className={styles.headerImg} src={Pizza} alt='pizza' />
+                <img className={styles.headerImg} src={Pizza} alt="pizza" />
             </div>
             <Location />
             <Recommendations />

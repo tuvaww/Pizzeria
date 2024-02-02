@@ -23,7 +23,7 @@ export const Recommendations = () => {
                             <p className={styles.price}>{price} $</p>
 
                             <div className={styles.buttonContainer}>
-                                <Button to='/order' size='xs' width='fill'>
+                                <Button to="/order" size="xs" width="fill">
                                     Order now
                                 </Button>
                             </div>

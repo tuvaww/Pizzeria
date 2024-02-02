@@ -31,7 +31,7 @@ export const Header = () => {
     return (
         <header className={styles.header}>
             <div>
-                <img src={Logo} alt='logo' />
+                <img src={Logo} alt="logo" />
             </div>
             <div className={styles.linksContainer}>{linkTemplate}</div>
             <div className={styles.hamburgerMenu}>
@@ -41,9 +41,9 @@ export const Header = () => {
             </div>
             <div className={styles.buttonContainer}>
                 <Button
-                    to='/order-online'
-                    size='xl'
-                    width='wider'
+                    to="/order-online"
+                    size="xl"
+                    width="wider"
                     className={styles.button}
                 >
                     <div className={styles.buttonChildren}>

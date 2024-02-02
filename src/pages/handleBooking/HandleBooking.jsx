@@ -8,6 +8,7 @@ import { GoClockFill } from 'react-icons/go';
 
 import styles from './style.module.scss';
 
+/* TODO - validate token */
 export const HandleBooking = () => {
     const navigate = useNavigate();
     const locationUrl = useLocation();
